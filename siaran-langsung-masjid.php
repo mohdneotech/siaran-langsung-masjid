@@ -3,7 +3,7 @@
  * Plugin Name:       Siaran Langsung Masjid
  * Plugin URI:        https://github.com/mohdneotech/siaran-langsung-masjid
  * Description:       Siaran langsung & rakaman khutbah, ceramah dan kuliah masjid / surau dari YouTube atau Facebook. AJK tampal pautan di Papan Pemuka dan klik "Mula Siaran"; widget laman utama, halaman siaran dengan jadual & rakaman, dan butang LANGSUNG terapung di halaman lain.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Requires at least: 6.4
  * Requires PHP:      7.4
  * Author:            Mohd Nordin Hussain
@@ -23,7 +23,7 @@ if ( defined( 'PS_VER' ) ) {
 	return;
 }
 
-define( 'PS_VER', '1.0.0' );
+define( 'PS_VER', '1.0.1' );
 define( 'PS_FILE', __FILE__ );
 define( 'PS_URL', plugin_dir_url( __FILE__ ) );
 define( 'PS_CPT', 'mp_siaran' );

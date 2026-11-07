@@ -64,7 +64,7 @@
 @supports (color: color-mix(in srgb, red 10%, white)) { :root { --ps-dark: color-mix(in srgb, var(--ps-c, #527c3a) 60%, #000); } }
 .ps-in { max-width: 1320px; margin: 0 auto; padding: 0 clamp(1rem, 3vw, 2rem); }
 .ps-front { box-sizing: border-box; }
-.wp-site-blocks .ps-front--live, .is-layout-constrained > .ps-front--live { width: 100vw; max-width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); }
+.wp-site-blocks .ps-front--live, .is-layout-constrained > .ps-front--live { width: 100vw; max-width: 100vw; margin-left: calc(50% - 50vw) !important; margin-right: calc(50% - 50vw) !important; }
 .ps-ui, .ps-ui *, .ps-ui *::before, .ps-ui *::after { box-sizing: border-box; }
 .ps-ui .row { --gx: 1.5rem; display: flex; flex-wrap: wrap; margin-left: calc(-.5 * var(--gx)); margin-right: calc(-.5 * var(--gx)); row-gap: 1.5rem; }
 .ps-ui .row > * { flex-shrink: 0; width: 100%; max-width: 100%; padding-left: calc(.5 * var(--gx)); padding-right: calc(.5 * var(--gx)); }
