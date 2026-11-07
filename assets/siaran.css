@@ -1,0 +1,88 @@
+/* Siaran Langsung Masjid — works on any theme; Bootstrap-compatible subset scoped to .ps-ui. Colours: --ps-c, --ps-deep, --ps-leaf (Tetapan). */
+.ps-dot { display:inline-block; width:.6rem; height:.6rem; border-radius:50%; background:#ff3b30; box-shadow:0 0 0 0 rgba(255,59,48,.7); animation:ps-pulse 1.6s infinite; vertical-align:middle; }
+@keyframes ps-pulse { 0%{box-shadow:0 0 0 0 rgba(255,59,48,.7)} 70%{box-shadow:0 0 0 .55rem rgba(255,59,48,0)} 100%{box-shadow:0 0 0 0 rgba(255,59,48,0)} }
+@media (prefers-reduced-motion: reduce){ .ps-dot{animation:none} }
+
+.ps-player { border-radius: 14px; overflow:hidden; background:#000; box-shadow:0 18px 40px rgba(0,0,0,.25); }
+.ps-player iframe { border:0; }
+
+/* Front page */
+.ps-front--live { background: linear-gradient(135deg, var(--ps-deep,#1d3314), var(--ps-dark,#2f4d20)); color:#fff; padding:2.5rem 0; }
+.ps-front--up { padding:1.5rem 0 0; }
+.ps-live { color:#fff; }
+.ps-page-live .ps-live { background: linear-gradient(135deg, var(--ps-deep,#1d3314), var(--ps-dark,#2f4d20)); padding:1.5rem; border-radius: 14px; margin-bottom:2rem; }
+.ps-badge-live { display:inline-flex; align-items:center; gap:.5rem; background:#d62d20; color:#fff; font-weight:700; font-size:.78rem; letter-spacing:.08em; padding:.35rem .8rem; border-radius:999px; margin-bottom:.9rem; }
+.ps-badge-live .ps-dot { background:#fff; box-shadow:0 0 0 0 rgba(255,255,255,.7); animation-name:ps-pulse-w; }
+@keyframes ps-pulse-w { 0%{box-shadow:0 0 0 0 rgba(255,255,255,.7)} 70%{box-shadow:0 0 0 .55rem rgba(255,255,255,0)} 100%{box-shadow:0 0 0 0 rgba(255,255,255,0)} }
+.ps-live .ps-live-title, .entry-content .ps-live .ps-live-title { color:#fff !important; margin-top:0; font-size:clamp(1.3rem,2.4vw,1.9rem); margin-bottom:.6rem; }
+.ps-meta { display:flex; flex-wrap:wrap; gap:.4rem 1rem; font-size:.9rem; opacity:.9; }
+.ps-meta i { color: var(--ps-leaf,#8dc642); margin-right:.2rem; }
+
+/* Upcoming card */
+.ps-up-link { text-decoration:none; color:inherit; display:block; }
+.ps-upcoming { display:flex; align-items:center; gap:1rem; background:#fff; border:1px solid #e8eee2; border-left:5px solid #d62d20; border-radius: 14px; padding:1rem 1.25rem; margin-bottom:1rem; transition:box-shadow .2s, transform .2s; }
+.ps-up-link:hover .ps-upcoming { box-shadow:0 12px 28px rgba(29,51,20,.12); transform:translateY(-2px); }
+.ps-up-icon { flex:0 0 48px; height:48px; border-radius:12px; display:grid; place-items:center; background:#fdecea; color:#d62d20; font-size:1.25rem; }
+.ps-up-body { flex:1; min-width:0; }
+.ps-up-eyebrow { font-size:.75rem; text-transform:uppercase; letter-spacing:.06em; color:#d62d20; font-weight:600; }
+.ps-up-title { font-weight:600; color: #1c1a1b; }
+.ps-up-when { font-size:.88rem; color: #5f6b5a; }
+.ps-up-count { font-variant-numeric:tabular-nums; font-weight:600; color: var(--ps-c,#527c3a); text-align:right; white-space:nowrap; }
+.ps-up-count small { display:block; font-weight:400; color: #5f6b5a; font-size:.72rem; }
+@media (max-width:575.98px){ .ps-upcoming{flex-wrap:wrap} .ps-up-count{flex-basis:100%; text-align:left; padding-left:64px} }
+
+/* Page */
+.ps-none { display:flex; gap:1rem; align-items:center; background: #f7f9f3; border:1px dashed #cfdcc2; border-radius: 14px; padding:1.25rem 1.5rem; margin-bottom:2rem; }
+.ps-none > i { font-size:1.6rem; color: #5f6b5a; }
+.ps-h { font-size:1.35rem; margin:2rem 0 1rem; }
+.ps-filter { display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:1.25rem; }
+.ps-filter a, .ps-pager a { padding:.35rem .9rem; border-radius:999px; border:1px solid #d9e4cf; color: var(--ps-dark,#2f4d20); text-decoration:none; font-size:.88rem; }
+.ps-filter a.is-on, .ps-pager a.is-on { background: var(--ps-c,#527c3a); border-color: var(--ps-c,#527c3a); color:#fff; }
+.ps-pager { display:flex; gap:.4rem; justify-content:center; margin-top:1.5rem; }
+
+.ps-rec { overflow:hidden; }
+.ps-rec-thumb { display:block; width:100%; aspect-ratio:16/9; border:0; padding:0; margin:0; background:#111; cursor:pointer; position:relative; overflow:hidden; }
+.ps-rec-thumb .ps-rec-img, .entry-content .ps-rec-thumb .ps-rec-img { position:absolute; inset:0; width:100%; height:100% !important; max-width:none; margin:0 !important; object-fit:cover; border-radius:0; display:block; }
+.ps-rec-ph { position:absolute; inset:0; display:grid !important; place-items:center; font-size:3rem; color:#fff; background: linear-gradient(135deg, var(--ps-dark,#2f4d20), var(--ps-c,#527c3a)); }
+.ps-rec-ph--facebook { background: linear-gradient(135deg,#1b4fa0,#1877f2); }
+.ps-play { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:58px; height:58px; border-radius:50%; background:rgba(0,0,0,.6); color:#fff; display:grid; place-items:center; font-size:1.2rem; transition:background .2s; }
+.ps-rec-thumb:hover .ps-play, .ps-rec-thumb:focus-visible .ps-play { background:#d62d20; }
+.ps-rec-playing { background:#000; }
+.ps-rec-playing iframe { border:0; }
+.ps-rec-jenis { font-size:.72rem; text-transform:uppercase; letter-spacing:.06em; color: var(--ps-c,#527c3a); font-weight:600; }
+.ps-rec-title { font-size:1rem; font-weight:600; margin:.2rem 0 .3rem; }
+.ps-rec-sub { font-size:.85rem; color: #5f6b5a; }
+
+/* Floating pill (other pages) */
+.ps-float { position:fixed; left:16px; bottom:16px; z-index:1040; display:flex; align-items:center; gap:.5rem; max-width:calc(100vw - 32px); background:#d62d20; color:#fff; text-decoration:none; padding:.55rem 1rem; border-radius:999px; box-shadow:0 10px 26px rgba(0,0,0,.25); font-size:.9rem; }
+.ps-float:hover { color:#fff; background:#b5241a; }
+.ps-float .ps-dot { background:#fff; animation-name:ps-pulse-w; }
+.ps-float-t { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:42vw; }
+
+/* ---------- theme-independent layer ---------- */
+:root { --ps-dark: #2f4d20; }
+@supports (color: color-mix(in srgb, red 10%, white)) { :root { --ps-dark: color-mix(in srgb, var(--ps-c, #527c3a) 60%, #000); } }
+.ps-in { max-width: 1320px; margin: 0 auto; padding: 0 clamp(1rem, 3vw, 2rem); }
+.ps-front { box-sizing: border-box; }
+.wp-site-blocks .ps-front--live, .is-layout-constrained > .ps-front--live { width: 100vw; max-width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); }
+.ps-ui, .ps-ui *, .ps-ui *::before, .ps-ui *::after { box-sizing: border-box; }
+.ps-ui .row { --gx: 1.5rem; display: flex; flex-wrap: wrap; margin-left: calc(-.5 * var(--gx)); margin-right: calc(-.5 * var(--gx)); row-gap: 1.5rem; }
+.ps-ui .row > * { flex-shrink: 0; width: 100%; max-width: 100%; padding-left: calc(.5 * var(--gx)); padding-right: calc(.5 * var(--gx)); }
+.ps-ui .align-items-center { align-items: center; }
+@media (min-width: 576px) { .ps-ui .col-sm-6 { flex: 0 0 auto; width: 50%; } }
+@media (min-width: 992px) { .ps-ui .col-lg-8 { flex: 0 0 auto; width: 66.6667%; } .ps-ui .col-lg-4 { flex: 0 0 auto; width: 33.3333%; } }
+.ps-ui .col-12 { flex: 0 0 auto; width: 100%; }
+.ps-ui .ratio, .ps-rec-playing.ratio { position: relative; width: 100%; aspect-ratio: 16 / 9; }
+.ps-ui .ratio > iframe, .ps-rec-playing.ratio > iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.ps-ui .d-flex { display: flex; } .ps-ui .flex-wrap { flex-wrap: wrap; } .ps-ui .gap-2 { gap: .5rem; } .ps-ui .mt-3 { margin-top: 1rem; }
+.ps-ui .p-3 { padding: 1rem; } .ps-ui .fw-semibold { font-weight: 600; } .ps-ui .small { font-size: .875em; } .ps-ui .text-secondary { color: #5f6b5a; }
+.ps-ui .btn { display: inline-flex; align-items: center; justify-content: center; gap: .45rem; padding: .55rem 1.1rem; font: inherit; font-weight: 600; line-height: 1.4; border-radius: 999px; border: 1px solid transparent; text-decoration: none !important; cursor: pointer; transition: .15s; white-space: nowrap; }
+.ps-ui .btn-sm { padding: .3rem .8rem; font-size: .875rem; }
+.ps-ui .btn-leaf { background: var(--ps-leaf, #8dc642); border-color: var(--ps-leaf, #8dc642); color: var(--ps-deep, #1d3314); }
+.ps-ui .btn-leaf:hover { filter: brightness(.95); color: var(--ps-deep, #1d3314); }
+.ps-ui .btn-outline-light { background: transparent; border-color: rgba(255, 255, 255, .7); color: #fff; }
+.ps-ui .btn-outline-light:hover { background: rgba(255, 255, 255, .12); color: #fff; }
+.ps-ui .btn-mp { background: var(--ps-c, #527c3a); border-color: var(--ps-c, #527c3a); color: #fff; }
+.ps-card { background: #fff; border: 1px solid #e8eee2; border-radius: 14px; box-shadow: 0 6px 18px rgba(29, 51, 20, .06); height: 100%; }
+.ps-ui h2.ps-live-title, .ps-ui .ps-h { line-height: 1.25; }
+.ps-ui .ps-rec-title { line-height: 1.35; }
