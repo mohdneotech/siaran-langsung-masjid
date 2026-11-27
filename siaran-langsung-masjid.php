@@ -263,7 +263,7 @@ function ps_meta_line( $s ) {
 	if ( $s['jenis'] )      $bits[] = '<span><i class="fa-solid fa-tag"></i> ' . esc_html( $s['jenis'] ) . '</span>';
 	if ( $s['penceramah'] ) $bits[] = '<span><i class="fa-solid fa-user"></i> ' . esc_html( $s['penceramah'] ) . '</span>';
 	if ( $s['mula'] )       $bits[] = '<span><i class="fa-regular fa-clock"></i> ' . esc_html( ps_fmt_date( $s['mula'] ) ) . '</span>';
-	if ( $s['platform'] )   $bits[] = '<span><i class="' . ps_platform_icon( $s['platform'] ) . '"></i> ' . ( $s['platform'] === 'facebook' ? 'Facebook' : 'YouTube' ) . '</span>';
+	if ( $s['platform'] )   $bits[] = '<span><i class="' . esc_attr( ps_platform_icon( $s['platform'] ) ) . '"></i> ' . ( $s['platform'] === 'facebook' ? 'Facebook' : 'YouTube' ) . '</span>';
 	return '<div class="ps-meta">' . implode( '', $bits ) . '</div>';
 }
 
@@ -576,8 +576,8 @@ add_action( 'wp_dashboard_setup', function () {
 
 function ps_dashboard_widget() {
 	if ( ! empty( $_GET['ps_msg'] ) ) {
-		$m = [ 'mula' => 'Siaran langsung dimulakan dan kini dipaparkan di laman utama.', 'tamat' => 'Siaran ditamatkan dan disimpan sebagai rakaman.', 'ralat' => 'Pautan tidak sah — hanya YouTube atau Facebook.' ][ sanitize_key( $_GET['ps_msg'] ) ] ?? '';
-		if ( $m ) echo '<div class="notice notice-' . ( $_GET['ps_msg'] === 'ralat' ? 'error' : 'success' ) . ' inline"><p>' . esc_html( $m ) . '</p></div>';
+		$m = [ 'mula' => 'Siaran langsung dimulakan dan kini dipaparkan di laman utama.', 'tamat' => 'Siaran ditamatkan dan disimpan sebagai rakaman.', 'ralat' => 'Pautan tidak sah — hanya YouTube atau Facebook.' ][ sanitize_key( wp_unslash( $_GET['ps_msg'] ) ) ] ?? '';
+		if ( $m ) echo '<div class="notice notice-' . ( sanitize_key( wp_unslash( $_GET['ps_msg'] ) ) === 'ralat' ? 'error' : 'success' ) . ' inline"><p>' . esc_html( $m ) . '</p></div>';
 	}
 	$live = ps_live();
 	if ( $live ) {
